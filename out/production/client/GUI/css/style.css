@@ -1,0 +1,35 @@
+
+.table-view .column-header-background .label{
+    -fx-text-fill: white;
+
+}
+
+.text-input {
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: white;
+}
+
+.text-input:focused {
+    -fx-prompt-text-fill: transparent;
+    -fx-highlight-fill: orange;
+    -fx-highlight-text-fill: white;
+}
+
+.choice-box .context-menu {
+    -fx-background-color: #0D1824;
+}
+
+.choice-box .menu-item > .label { -fx-text-fill: white; }
+
+.choice-box .menu-item:focused { -fx-background-color: orange; }
+
+.choice-box > .label { -fx-text-fill: white; }
+
+  .text-area .content{
+      -fx-background-color: derive(#0D1824,-30%);
+      -fx-background-radius: 0 ;
+  }
+
+.date-picker .text-field {
+    -fx-control-inner-background: #0D1824 ;
+}

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #142428;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.EditProfileController">
+    <children>
+        <BorderPane fx:id="editProfileLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0D1824;">
+            <top>
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Personal Information" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font size="27.0" />
+                    </font>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </BorderPane.margin>
+                </Text>
+            </top>
+            <center>
+                <GridPane prefWidth="600.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="179.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.0" minWidth="10.0" prefWidth="421.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="First Name:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="130.0" layoutY="61.0" text="Last Name:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="131.0" layoutY="135.0" text="Gender:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="139.0" layoutY="149.0" text="Mail:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="147.0" layoutY="208.0" text="Country:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="138.0" layoutY="231.0" text="Favourite Author:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <Label layoutX="114.0" layoutY="331.0" text="Favourite Genre:" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </Label>
+                        <TextField promptText="First Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField layoutX="209.0" layoutY="19.0" promptText="Last Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField layoutX="189.0" layoutY="109.0" promptText="Mail" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField layoutX="189.0" layoutY="153.0" promptText="Country" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField layoutX="189.0" layoutY="197.0" promptText="Favourite Genre" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField layoutX="189.0" layoutY="241.0" promptText="Favourite Author" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                            <GridPane.margin>
+                                <Insets left="20.0" right="20.0" />
+                            </GridPane.margin>
+                        </TextField>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <GridPane GridPane.columnIndex="1">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button fx:id="btnExit" mnemonicParsing="false" onMouseClicked="#backToProfile" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="Exit" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                        <Button fx:id="btnSave" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="Save" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                            <GridPane.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                            </GridPane.margin>
+                                        </Button>
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </GridPane>
+                        <ChoiceBox fx:id="choiceGender" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                            <GridPane.margin>
+                                <Insets left="20.0" />
+                            </GridPane.margin>
+                        </ChoiceBox>
+                    </children>
+                </GridPane>
+            </center>
+        </BorderPane>
+    </children>
+</HBox>
