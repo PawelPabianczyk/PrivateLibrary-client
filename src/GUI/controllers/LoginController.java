@@ -14,7 +14,6 @@ import models.User;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,21 +32,35 @@ public class LoginController implements Initializable {
         user.username = username.getText();
         user.password = password.getText();
 
-        try {
-            Socket socket = new Socket("localhost", 4444);
-            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject(user);
+        Boolean isLoginDataValid = false;
 
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        if(!user.username.isEmpty() && !user.password.isEmpty()){
+            try {
+                Socket socket = new Socket("localhost", 4444);
+                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject(user);
+
+                ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+                isLoginDataValid = (Boolean) inputStream.readObject();
+
+            } catch (IOException | ClassNotFoundException exception) {
+                exception.printStackTrace();
+            }
         }
 
-        Parent home = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
-        Scene homeScene = new Scene(home);
-        Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
-        window.setTitle("Private Library");
-        window.setScene(homeScene);
-        window.show();
+        if(isLoginDataValid){
+            Parent home = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
+            Scene homeScene = new Scene(home);
+            Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+            window.setTitle("Private Library");
+            window.setScene(homeScene);
+            window.show();
+        }
+        else{
+            System.out.println("Login and password are incorrect.");
+            username.clear();
+            password.clear();
+        }
     }
 
     public void register(MouseEvent mouseEvent) throws IOException {
