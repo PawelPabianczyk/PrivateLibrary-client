@@ -1,8 +1,9 @@
 package models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Book{
+public class Book implements Serializable {
     public static int amount = 0;
     public int id;
     public String title;

@@ -14,6 +14,7 @@ import models.User;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,6 +39,10 @@ public class LoginController implements Initializable {
             try {
                 Socket socket = new Socket("localhost", 4444);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject("sending login data");
+
+
+                outputStream = new ObjectOutputStream(socket.getOutputStream());
                 outputStream.writeObject(user);
 
                 ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());

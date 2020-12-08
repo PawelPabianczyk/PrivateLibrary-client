@@ -6,6 +6,7 @@ import javafx.scene.input.MouseEvent;
 import models.Book;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
@@ -117,8 +118,11 @@ public class AddBookController implements Initializable {
         public void run() {
             try {
                 Socket socket = new Socket("localhost", 4444);
-                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                printWriter.println(book.toString());
+                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject("sending book data");
+
+                outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject(book);
                 available.acquire();
                 numberOfBooks--;
 
