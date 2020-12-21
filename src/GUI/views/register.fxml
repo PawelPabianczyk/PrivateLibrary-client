@@ -38,12 +38,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField promptText="First Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <TextField fx:id="tfFirstName" promptText="First Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
                         </TextField>
-                        <TextField layoutX="30.0" layoutY="30.0" promptText="Last Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <TextField fx:id="tfLastName" layoutX="30.0" layoutY="30.0" promptText="Last Name" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
@@ -62,12 +62,15 @@
                         <Insets />
                     </GridPane.margin>
                     <children>
-                        <TextField promptText="Username" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <TextField fx:id="tfUsername" promptText="Username" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
                         </TextField>
-                        <TextField layoutX="30.0" layoutY="30.0" promptText="Email" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <TextField fx:id="tfCountry" promptText="Country" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1">
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
@@ -83,12 +86,12 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <PasswordField promptText="Confirm" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <PasswordField fx:id="pfConfirm" promptText="Confirm" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
                         </PasswordField>
-                        <PasswordField promptText="Password" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <PasswordField fx:id="pfPassword" promptText="Password" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                             <GridPane.margin>
                                 <Insets left="20.0" right="20.0" />
                             </GridPane.margin>
@@ -104,14 +107,6 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TextField promptText="Country" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;">
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <GridPane.margin>
-                                <Insets left="20.0" right="20.0" />
-                            </GridPane.margin>
-                        </TextField>
                         <ChoiceBox fx:id="choiceGender" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                     </children>
                 </GridPane>
@@ -129,7 +124,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="Sing Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onMouseClicked="#register" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="Sing Up" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                         <Button fx:id="btnBack" layoutX="410.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="Back" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                     </children>
                 </GridPane>
