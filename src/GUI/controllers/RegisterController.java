@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.User;
+import sun.nio.cs.ext.ISO2022_CN;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -64,10 +65,9 @@ public class RegisterController implements Initializable {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject("sending register data");
-
-            outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject(user);
 
+            socket.close();
         } catch (IOException exception) {
             exception.printStackTrace();
         }

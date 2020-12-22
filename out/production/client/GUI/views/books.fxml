@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #142428;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #142428;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.BooksController">
     <children>
         <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0D1824;">
             <top>
@@ -24,11 +24,11 @@
             <center>
                 <TableView fx:id="booksTable" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0D1824;" BorderPane.alignment="CENTER">
                     <columns>
-                        <TableColumn prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Title" />
-                        <TableColumn prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Author" />
-                        <TableColumn prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Genre" />
-                        <TableColumn prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Publish Date" />
-                        <TableColumn prefWidth="114.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 1px 1px 1px;" text="Status" />
+                        <TableColumn fx:id="title" prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Title" />
+                        <TableColumn fx:id="author" prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Author" />
+                        <TableColumn fx:id="genre" prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Genre" />
+                        <TableColumn fx:id="publishDate" prefWidth="116.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 0px 1px 1px;" text="Publish Date" />
+                        <TableColumn fx:id="status" prefWidth="114.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 1px 1px 1px 1px;" text="Status" />
                     </columns>
                     <opaqueInsets>
                         <Insets />

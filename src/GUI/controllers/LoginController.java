@@ -39,9 +39,6 @@ public class LoginController implements Initializable {
                 Socket socket = new Socket("localhost", 4444);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
                 outputStream.writeObject("sending login data");
-
-
-                outputStream = new ObjectOutputStream(socket.getOutputStream());
                 outputStream.writeObject(user);
 
                 ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
@@ -56,6 +53,7 @@ public class LoginController implements Initializable {
             Parent home = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
             Scene homeScene = new Scene(home);
             Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+            window.setUserData(user);
             window.setTitle("Private Library");
             window.setScene(homeScene);
             window.show();

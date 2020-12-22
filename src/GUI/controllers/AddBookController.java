@@ -1,9 +1,12 @@
 package GUI.controllers;
 
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.Book;
+import models.User;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -64,18 +67,14 @@ public class AddBookController implements Initializable {
 
 
     public void addNewBook(MouseEvent mouseEvent) {
-        Book book = new Book();
-        book.setTitle(tfTitle.getText());
-        book.setAuthor(tfAuthor.getText());
-        book.setDescription(taDescription.getText());
-        book.setLanguage(tfLanguage.getText());
-        book.setGenre(tfGenre.getText());
-        book.setPublishDate(dpPublishDate.getValue());
-        book.setReturnDate(dpDateOfReturn.getValue());
-        book.setPublisher(tfPublisher.getText());
+        Node node = (Node) mouseEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        User u = (User) stage.getUserData();
+
+        Book book = getBook();
 
         String taskName = "Task " + book.id;
-        Task task = new Task(taskName, book);
+        Task task = new Task(u.username, taskName, book);
 
         taskList.add(task);
         incrementNumberOfBooks();
@@ -106,14 +105,29 @@ public class AddBookController implements Initializable {
         this.taDescription.clear();
     }
 
+    private Book getBook(){
+        Book book = new Book();
+        book.setTitle(tfTitle.getText());
+        book.setAuthor(tfAuthor.getText());
+        book.setDescription(taDescription.getText());
+        book.setLanguage(tfLanguage.getText());
+        book.setGenre(tfGenre.getText());
+        book.setPublishDate(dpPublishDate.getValue());
+        book.setReturnDate(dpDateOfReturn.getValue());
+        book.setPublisher(tfPublisher.getText());
+        return book;
+    }
+
 
     class Task implements Runnable {
         private Book book;
         private String name;
+        private String username;
 
-        public Task(String name, Book book) {
+        public Task(String username, String name, Book book) {
             this.name = name;
             this.book = book;
+            this.username = username;
         }
 
         public void run() {
@@ -122,8 +136,8 @@ public class AddBookController implements Initializable {
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
                 outputStream.writeObject("sending book data");
 
-                outputStream = new ObjectOutputStream(socket.getOutputStream());
                 outputStream.writeObject(book);
+                outputStream.writeObject(username);
                 available.acquire();
                 numberOfBooks--;
 
