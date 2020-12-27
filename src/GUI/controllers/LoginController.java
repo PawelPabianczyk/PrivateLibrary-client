@@ -50,6 +50,9 @@ public class LoginController implements Initializable {
         }
 
         if(isLoginDataValid){
+
+            UserHolder.getInstance().setUser(user);
+
             Parent home = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
             Scene homeScene = new Scene(home);
             Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();

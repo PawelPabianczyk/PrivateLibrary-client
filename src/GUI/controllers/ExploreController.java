@@ -4,17 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import models.Book;
-import models.User;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,7 +18,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BooksController implements Initializable {
+public class ExploreController  implements Initializable {
 
     @FXML
     private TableView<Book> booksTable;
@@ -39,33 +33,28 @@ public class BooksController implements Initializable {
     private TableColumn<Book, String> genre;
 
     @FXML
-    private TableColumn<Book, LocalDate> publishDate;
+    private TableColumn<Book, String> owner;
 
     @FXML
-    private TableColumn<Book, String> status;
-
-    //    Node node = (Node) mouseEvent.getSource();
-    //    Stage stage = (Stage) node.getScene().getWindow();
-    //    user = (User) stage.getUserData();
+    private TableColumn<Book, LocalDate> dateAdded;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        final ObservableList<Book> data = FXCollections.observableArrayList(getUsersBooks());
+        final ObservableList<Book> data = FXCollections.observableArrayList(getBooks());
         title.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         genre.setCellValueFactory(new PropertyValueFactory<Book, String>("genre"));
-        publishDate.setCellValueFactory(new PropertyValueFactory<Book, LocalDate>("publishDate"));
-        status.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
+        dateAdded.setCellValueFactory(new PropertyValueFactory<Book, LocalDate>("dateAdded"));
+        owner.setCellValueFactory(new PropertyValueFactory<Book, String>("owner"));
         booksTable.setItems(data);
     }
 
-    private ArrayList<Book> getUsersBooks(){
+    private ArrayList<Book> getBooks(){
 
         try {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject("get books");
-            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+            outputStream.writeObject("get all books");
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             ArrayList<Book> books = (ArrayList<Book>) inputStream.readObject();

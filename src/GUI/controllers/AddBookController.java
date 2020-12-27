@@ -73,7 +73,7 @@ public class AddBookController implements Initializable {
 
         Book book = getBook();
 
-        String taskName = "Task " + book.id;
+        String taskName = "Task ";
         Task task = new Task(u.username, taskName, book);
 
         taskList.add(task);
