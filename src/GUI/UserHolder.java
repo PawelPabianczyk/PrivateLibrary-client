@@ -1,4 +1,4 @@
-package GUI.controllers;
+package GUI;
 
 import models.User;
 

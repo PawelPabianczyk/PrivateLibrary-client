@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import GUI.UserHolder;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -56,7 +57,6 @@ public class LoginController implements Initializable {
             Parent home = FXMLLoader.load(getClass().getResource("../views/home.fxml"));
             Scene homeScene = new Scene(home);
             Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
-            window.setUserData(user);
             window.setTitle("Private Library");
             window.setScene(homeScene);
             window.show();

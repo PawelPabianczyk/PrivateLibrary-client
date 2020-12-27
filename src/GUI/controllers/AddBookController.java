@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import GUI.UserHolder;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -67,9 +68,7 @@ public class AddBookController implements Initializable {
 
 
     public void addNewBook(MouseEvent mouseEvent) {
-        Node node = (Node) mouseEvent.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        User u = (User) stage.getUserData();
+        User u = UserHolder.getInstance().getUser();
 
         Book book = getBook();
 
