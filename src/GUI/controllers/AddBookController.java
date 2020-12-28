@@ -133,7 +133,7 @@ public class AddBookController implements Initializable {
             try {
                 Socket socket = new Socket("localhost", 4444);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                outputStream.writeObject("sending book data");
+                outputStream.writeObject("POST books");
 
                 outputStream.writeObject(book);
                 outputStream.writeObject(username);

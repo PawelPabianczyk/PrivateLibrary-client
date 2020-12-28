@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import GUI.UserHolder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,11 +8,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import models.User;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,9 +29,34 @@ public class HomeController implements Initializable {
     @FXML
     private BorderPane profileLayout;
 
+    @FXML
+    private Label lFirstName;
+
+    @FXML
+    private Label lLastName;
+
+    @FXML
+    private Label lGender;
+
+    @FXML
+    private Label lCountry;
+
+    @FXML
+    private Label lFavouriteGenre;
+
+    @FXML
+    private Label lFavouriteAuthor;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        User u = getUserData();
+        lFirstName.setText(u.firstName);
+        lLastName.setText(u.lastName);
+        lGender.setText(u.gender);
+        lCountry.setText(u.country);
+        lFavouriteGenre.setText(u.favouriteGenre);
+        lFavouriteAuthor.setText(u.favouriteAuthor);
+        UserHolder.getInstance().setUser(u);
     }
 
     public void home(MouseEvent mouseEvent) {
@@ -66,5 +97,22 @@ public class HomeController implements Initializable {
 
     public void editProfile(MouseEvent mouseEvent) {
         loadPage("../views/editProfile");
+    }
+
+    private User getUserData(){
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", 4444);
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            outputStream.writeObject("GET user data");
+            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+
+            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+            return (User) inputStream.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

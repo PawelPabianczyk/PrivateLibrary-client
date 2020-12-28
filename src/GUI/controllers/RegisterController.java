@@ -64,7 +64,7 @@ public class RegisterController implements Initializable {
         try {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject("sending register data");
+            outputStream.writeObject("POST register");
             outputStream.writeObject(user);
 
             socket.close();

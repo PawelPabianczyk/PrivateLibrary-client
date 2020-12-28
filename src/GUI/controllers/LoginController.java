@@ -39,7 +39,7 @@ public class LoginController implements Initializable {
             try {
                 Socket socket = new Socket("localhost", 4444);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-                outputStream.writeObject("sending login data");
+                outputStream.writeObject("PUT login");
                 outputStream.writeObject(user);
 
                 ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());

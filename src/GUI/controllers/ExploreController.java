@@ -54,7 +54,7 @@ public class ExploreController  implements Initializable {
         try {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.writeObject("get all books");
+            outputStream.writeObject("GET all books");
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             ArrayList<Book> books = (ArrayList<Book>) inputStream.readObject();
