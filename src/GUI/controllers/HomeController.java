@@ -43,9 +43,11 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label lFavouriteGenre;
+    //TODO pobierac z biblioteki najczesciej wystepujacych autorow
 
     @FXML
     private Label lFavouriteAuthor;
+    //TODO pobierac z biblioteki najczesciej wystepujace gatunki
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
