@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import GUI.UserHolder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,8 +14,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.User;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,8 +52,15 @@ public class EditProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        choiceGender.setValue("Rather not say");
+        User user = UserHolder.getInstance().getUser();
+        tfFirstName.setText(user.firstName);
+        tfLastName.setText(user.lastName);
+        tfCountry.setText(user.country);
+        tfFavouriteAuthor.setText(user.favouriteAuthor);
+        tfFavouriteGenre.setText(user.favouriteGenre);
+        choiceGender.setValue(user.gender);
         choiceGender.setItems(genderList);
+
     }
 
     public void backToProfile(MouseEvent mouseEvent) throws IOException {
@@ -60,6 +71,26 @@ public class EditProfileController implements Initializable {
         window.show();
     }
 
-    public void save(MouseEvent mouseEvent) {
+    public void save(MouseEvent mouseEvent) throws IOException {
+        User user = UserHolder.getInstance().getUser();
+        user.country = tfCountry.getText();
+        user.gender = choiceGender.getValue();
+        user.firstName = tfFirstName.getText();
+        user.lastName = tfLastName.getText();
+        user.favouriteAuthor = tfFavouriteAuthor.getText();
+        user.favouriteGenre = tfFavouriteGenre.getText();
+
+        try {
+            Socket socket = new Socket("localhost", 4444);
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            outputStream.writeObject("POST personal data");
+            outputStream.writeObject(user);
+
+            socket.close();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
+        backToProfile(mouseEvent);
     }
 }
