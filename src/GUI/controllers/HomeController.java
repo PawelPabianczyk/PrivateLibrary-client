@@ -56,8 +56,8 @@ public class HomeController implements Initializable {
         lLastName.setText(u.lastName);
         lGender.setText(u.gender);
         lCountry.setText(u.country);
-        lFavouriteGenre.setText(u.favouriteGenre);
-        lFavouriteAuthor.setText(u.favouriteAuthor);
+        lFavouriteGenre.setText(getFavouriteGenre());
+        lFavouriteAuthor.setText(null); //TODO zrobic funkcje do pobierania ulubionego autora
         UserHolder.getInstance().setUser(u);
     }
 
@@ -111,6 +111,23 @@ public class HomeController implements Initializable {
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             return (User) inputStream.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String getFavouriteGenre(){
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", 4444);
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            outputStream.writeObject("GET favourite genre");
+            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+
+            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+            return (String) inputStream.readObject();
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

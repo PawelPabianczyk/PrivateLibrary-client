@@ -34,12 +34,6 @@ public class EditProfileController implements Initializable {
     private TextField tfCountry;
 
     @FXML
-    private TextField tfFavouriteGenre;
-
-    @FXML
-    private TextField tfFavouriteAuthor;
-
-    @FXML
     private Button btnExit;
 
     @FXML
@@ -56,8 +50,6 @@ public class EditProfileController implements Initializable {
         tfFirstName.setText(user.firstName);
         tfLastName.setText(user.lastName);
         tfCountry.setText(user.country);
-        tfFavouriteAuthor.setText(user.favouriteAuthor);
-        tfFavouriteGenre.setText(user.favouriteGenre);
         choiceGender.setValue(user.gender);
         choiceGender.setItems(genderList);
 
@@ -77,8 +69,6 @@ public class EditProfileController implements Initializable {
         user.gender = choiceGender.getValue();
         user.firstName = tfFirstName.getText();
         user.lastName = tfLastName.getText();
-        user.favouriteAuthor = tfFavouriteAuthor.getText();
-        user.favouriteGenre = tfFavouriteGenre.getText();
 
         try {
             Socket socket = new Socket("localhost", 4444);
