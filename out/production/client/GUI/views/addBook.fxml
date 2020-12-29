@@ -45,11 +45,26 @@
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="tfAuthor" layoutX="30.0" layoutY="30.0" promptText="Author" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </GridPane.margin>
-                        </TextField>
+                        <GridPane GridPane.columnIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ChoiceBox fx:id="choiceAuthor" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="LEFT">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="60.0" />
+                                 </GridPane.margin>
+                              </ChoiceBox>
+                              <Button fx:id="btnAddAuthor" mnemonicParsing="false" onMouseClicked="#addNewAuthor" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.halignment="RIGHT">
+                                 <GridPane.margin>
+                                    <Insets right="20.0" />
+                                 </GridPane.margin>
+                              </Button>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                   <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -66,14 +81,24 @@
                      <children>
                         <ChoiceBox fx:id="choiceGenre" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets left="20.0" right="60.0" />
                            </GridPane.margin>
                         </ChoiceBox>
                         <ChoiceBox fx:id="choicePublisher" layoutX="330.0" layoutY="34.0" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets left="20.0" right="60.0" />
                            </GridPane.margin>
                         </ChoiceBox>
+                        <Button fx:id="btnAddPublisher" mnemonicParsing="false" onMouseClicked="#addNewPublisher" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <Button fx:id="btnAddGenre" layoutX="263.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#addNewGenre" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </Button>
                      </children>
                   </GridPane>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book" GridPane.halignment="CENTER" GridPane.valignment="CENTER">

@@ -4,9 +4,12 @@ import GUI.UserHolder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import models.Book;
 import models.User;
 
@@ -23,7 +26,6 @@ import java.util.concurrent.Semaphore;
 
 public class AddBookController implements Initializable {
     public TextField tfTitle;
-    public TextField tfAuthor;
     public TextField tfLanguage;
     public Button btnAdd;
     public TextArea taDescription;
@@ -35,6 +37,11 @@ public class AddBookController implements Initializable {
     public ChoiceBox<String> choiceGenre;
     @FXML
     public ChoiceBox<String> choicePublisher;
+    @FXML
+    public BorderPane bp;
+
+    @FXML
+    public ChoiceBox<String> choiceAuthor;
 
     private ExecutorService ex;
     private ArrayList<Task> taskList;
@@ -43,6 +50,7 @@ public class AddBookController implements Initializable {
 
     private ObservableList<String> genresList;
     private ObservableList<String> publishersList;
+    private ObservableList<String> authorsList;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,12 +59,16 @@ public class AddBookController implements Initializable {
 
         genresList = getGenresList();
         publishersList = getPublishersList();
+        authorsList = getAuthorsList();
 
         choiceGenre.setValue("Classic");
         choiceGenre.setItems(genresList);
 
         choicePublisher.setValue("Supernowa");
         choicePublisher.setItems(publishersList);
+
+        choiceAuthor.setValue("George Orwell");
+        choiceAuthor.setItems(authorsList);
     }
 
     public void sendBookToServer(MouseEvent mouseEvent) {
@@ -111,8 +123,8 @@ public class AddBookController implements Initializable {
 
     private void clearForm() {
         this.tfTitle.clear();
-        this.tfAuthor.clear();
         this.choicePublisher.setValue("Supernowa");
+        this.choiceAuthor.setValue("George Orwell");
         this.dpPublishDate.getEditor().clear();
         this.dpPublishDate.setValue(null);
         this.dpDateOfReturn.getEditor().clear();
@@ -125,10 +137,10 @@ public class AddBookController implements Initializable {
     private Book getBook(){
         Book book = new Book();
         book.setTitle(tfTitle.getText());
-        book.setAuthor(tfAuthor.getText());
         book.setDescription(taDescription.getText());
         book.setLanguage(tfLanguage.getText());
         book.setGenre(choiceGenre.getValue());
+        book.setAuthor(choiceAuthor.getValue());
         book.setPublishDate(dpPublishDate.getValue());
         book.setReturnDate(dpDateOfReturn.getValue());
         book.setPublisher(choicePublisher.getValue());
@@ -167,6 +179,45 @@ public class AddBookController implements Initializable {
             exception.printStackTrace();
         }
         return null;
+    }
+
+    private ObservableList<String> getAuthorsList(){
+        try {
+            Socket socket = new Socket("localhost", 4444);
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            outputStream.writeObject("GET authors list");
+
+            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+            ArrayList<String> authors = (ArrayList<String>) inputStream.readObject();
+
+            return FXCollections.observableArrayList(authors);
+
+        } catch (IOException | ClassNotFoundException exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
+
+    public void addNewAuthor(MouseEvent mouseEvent) {
+        loadPage("../views/addAuthor");
+    }
+
+    public void addNewPublisher(MouseEvent mouseEvent) {
+        loadPage("../views/addPublisher");
+    }
+
+    public void addNewGenre(MouseEvent mouseEvent) {
+        loadPage("../views/addGenre");
+    }
+
+    private void loadPage(String page){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        bp.setCenter(root);
     }
 
 
