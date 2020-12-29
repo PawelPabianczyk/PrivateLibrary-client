@@ -55,14 +55,9 @@
                            <children>
                               <ChoiceBox fx:id="choiceAuthor" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="LEFT">
                                  <GridPane.margin>
-                                    <Insets left="20.0" right="60.0" />
+                                    <Insets left="20.0" right="20.0" />
                                  </GridPane.margin>
                               </ChoiceBox>
-                              <Button fx:id="btnAddAuthor" mnemonicParsing="false" onMouseClicked="#addNewAuthor" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.halignment="RIGHT">
-                                 <GridPane.margin>
-                                    <Insets right="20.0" />
-                                 </GridPane.margin>
-                              </Button>
                            </children>
                         </GridPane>
                      </children>
@@ -81,24 +76,14 @@
                      <children>
                         <ChoiceBox fx:id="choiceGenre" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1">
                            <GridPane.margin>
-                              <Insets left="20.0" right="60.0" />
+                              <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </ChoiceBox>
                         <ChoiceBox fx:id="choicePublisher" layoutX="330.0" layoutY="34.0" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;">
                            <GridPane.margin>
-                              <Insets left="20.0" right="60.0" />
+                              <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </ChoiceBox>
-                        <Button fx:id="btnAddPublisher" mnemonicParsing="false" onMouseClicked="#addNewPublisher" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.halignment="RIGHT">
-                           <GridPane.margin>
-                              <Insets right="20.0" />
-                           </GridPane.margin>
-                        </Button>
-                        <Button fx:id="btnAddGenre" layoutX="263.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#addNewGenre" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" text="+" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
-                           <GridPane.margin>
-                              <Insets right="20.0" />
-                           </GridPane.margin>
-                        </Button>
                      </children>
                   </GridPane>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Book" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -120,7 +105,10 @@
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <DatePicker fx:id="dpPublishDate" promptText="Publish Date" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <DatePicker fx:id="dpPublishDate" prefWidth="400.0" promptText="Publish Date" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </GridPane.margin></DatePicker>
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="4">
@@ -137,7 +125,10 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </GridPane.margin>
                         </TextArea>
-                        <DatePicker fx:id="dpDateOfReturn" promptText="Date of return (optional)" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <DatePicker fx:id="dpDateOfReturn" prefWidth="400.0" promptText="Date of return (optional)" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </GridPane.margin></DatePicker>
                      </children>
                   </GridPane>
                </children>

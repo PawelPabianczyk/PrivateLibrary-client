@@ -60,7 +60,7 @@ public class BooksController implements Initializable {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject("GET user books");
-            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+            outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             ArrayList<Book> books = (ArrayList<Book>) inputStream.readObject();

@@ -6,10 +6,13 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 import models.Book;
 import models.User;
 
@@ -103,7 +106,7 @@ public class AddBookController implements Initializable {
         Book book = getBook();
 
         String taskName = "Task ";
-        Task task = new Task(u.username, taskName, book);
+        Task task = new Task(u.getUsername(), taskName, book);
 
         taskList.add(task);
         incrementNumberOfBooks();
@@ -197,29 +200,6 @@ public class AddBookController implements Initializable {
         }
         return null;
     }
-
-    public void addNewAuthor(MouseEvent mouseEvent) {
-        loadPage("../views/addAuthor");
-    }
-
-    public void addNewPublisher(MouseEvent mouseEvent) {
-        loadPage("../views/addPublisher");
-    }
-
-    public void addNewGenre(MouseEvent mouseEvent) {
-        loadPage("../views/addGenre");
-    }
-
-    private void loadPage(String page){
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource(page+".fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        bp.setCenter(root);
-    }
-
 
     class Task implements Runnable {
         private Book book;

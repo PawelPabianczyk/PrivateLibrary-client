@@ -51,14 +51,14 @@ public class RegisterController implements Initializable {
 
     public void register(MouseEvent mouseEvent) {
         User user = new User();
-        user.username = tfUsername.getText();
-        user.password = pfPassword.getText();
-        user.country = tfCountry.getText();
-        user.gender = choiceGender.getValue();
-        user.firstName = tfFirstName.getText();
-        user.lastName = tfLastName.getText();
-        user.favouriteAuthor = null;
-        user.favouriteGenre = null;
+        user.setUsername(tfUsername.getText());
+        user.setPassword(pfPassword.getText());
+        user.setCountry(tfCountry.getText());
+        user.setGender(choiceGender.getValue());
+        user.setFirstName(tfFirstName.getText());
+        user.setLastName(tfLastName.getText());
+        user.setFavouriteAuthor(null);
+        user.setFavouriteGenre(null);
 
         try {
             Socket socket = new Socket("localhost", 4444);

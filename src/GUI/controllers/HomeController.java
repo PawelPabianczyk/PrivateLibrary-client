@@ -51,10 +51,10 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User u = getUserData();
-        lFirstName.setText(u.firstName);
-        lLastName.setText(u.lastName);
-        lGender.setText(u.gender);
-        lCountry.setText(u.country);
+        lFirstName.setText(u.getFirstName());
+        lLastName.setText(u.getLastName());
+        lGender.setText(u.getGender());
+        lCountry.setText(u.getCountry());
         lFavouriteGenre.setText(getFavouriteGenre());
         lFavouriteAuthor.setText(null); //TODO zrobic funkcje do pobierania ulubionego autora
         UserHolder.getInstance().setUser(u);
@@ -70,6 +70,17 @@ public class HomeController implements Initializable {
 
     public void addBooks(MouseEvent mouseEvent) {
         loadPage("../views/addBook");
+    }
+    public void addAuthor(MouseEvent mouseEvent) {
+        loadPage("../views/addAuthor");
+    }
+
+    public void addGenre(MouseEvent mouseEvent) {
+        loadPage("../views/addGenre");
+    }
+
+    public void addPublisher(MouseEvent mouseEvent) {
+        loadPage("../views/addPublisher");
     }
 
     public void explore(MouseEvent mouseEvent) {
@@ -106,7 +117,7 @@ public class HomeController implements Initializable {
             socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject("GET user data");
-            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+            outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             return (User) inputStream.readObject();
@@ -123,7 +134,7 @@ public class HomeController implements Initializable {
             socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject("GET favourite genre");
-            outputStream.writeObject(UserHolder.getInstance().getUser().username);
+            outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             return (String) inputStream.readObject();

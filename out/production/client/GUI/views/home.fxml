@@ -16,30 +16,45 @@
     <left>
         <VBox prefHeight="400.0" prefWidth="120.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 1px 0px 0px;" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="btn1" mnemonicParsing="false" onMouseClicked="#home" prefHeight="59.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="PROFILE" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
+                <Button fx:id="btnProfile" mnemonicParsing="false" onMouseClicked="#home" prefHeight="50.0" prefWidth="164.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="PROFILE" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button fx:id="btn11" mnemonicParsing="false" onMouseClicked="#books" prefHeight="59.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="BOOKS" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
+                <Button fx:id="btnBooks" mnemonicParsing="false" onMouseClicked="#books" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="BOOKS" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button fx:id="btn12" mnemonicParsing="false" onMouseClicked="#addBooks" prefHeight="59.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="ADD BOOK" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
+                <Button fx:id="btnAddBook" mnemonicParsing="false" onMouseClicked="#addBooks" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="ADD BOOK" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button fx:id="btn13" mnemonicParsing="false" onMouseClicked="#explore" prefHeight="59.0" prefWidth="157.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="EXPLORE" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
+            <Button fx:id="btnAddAuthor" layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onMouseClicked="#addAuthor" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="ADD AUTHOR" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAddGenre" layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#addGenre" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="ADD GENRE" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAddPublisher" layoutX="10.0" layoutY="187.0" mnemonicParsing="false" onMouseClicked="#addPublisher" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="ADD PUBLISHER" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+                <Button fx:id="btnExplore" mnemonicParsing="false" onMouseClicked="#explore" prefHeight="50.0" prefWidth="157.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="EXPLORE" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
-                <Button fx:id="btn14" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="59.0" prefWidth="148.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="LOG OUT" textFill="WHITE">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
+                <Button fx:id="btnLogout" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 1px 0px;" text="LOG OUT" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
                 </Button>
             </children>
         </VBox>

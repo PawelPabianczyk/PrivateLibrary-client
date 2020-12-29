@@ -30,12 +30,12 @@ public class LoginController implements Initializable {
 
     public void login(MouseEvent mouseEvent) throws IOException {
         User user = new User();
-        user.username = username.getText();
-        user.password = password.getText();
+        user.setUsername(username.getText());
+        user.setPassword(password.getText());
 
         Boolean isLoginDataValid = false;
 
-        if(!user.username.isEmpty() && !user.password.isEmpty()){
+        if(!user.getUsername().isEmpty() && !user.getPassword().isEmpty()){
             try {
                 Socket socket = new Socket("localhost", 4444);
                 ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());

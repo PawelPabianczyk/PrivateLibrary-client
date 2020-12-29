@@ -47,12 +47,11 @@ public class EditProfileController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User user = UserHolder.getInstance().getUser();
-        tfFirstName.setText(user.firstName);
-        tfLastName.setText(user.lastName);
-        tfCountry.setText(user.country);
-        choiceGender.setValue(user.gender);
+        tfFirstName.setText(user.getFirstName());
+        tfLastName.setText(user.getLastName());
+        tfCountry.setText(user.getCountry());
+        choiceGender.setValue(user.getGender());
         choiceGender.setItems(genderList);
-
     }
 
     public void backToProfile(MouseEvent mouseEvent) throws IOException {
@@ -65,10 +64,10 @@ public class EditProfileController implements Initializable {
 
     public void save(MouseEvent mouseEvent) throws IOException {
         User user = UserHolder.getInstance().getUser();
-        user.country = tfCountry.getText();
-        user.gender = choiceGender.getValue();
-        user.firstName = tfFirstName.getText();
-        user.lastName = tfLastName.getText();
+        user.setCountry(tfCountry.getText());
+        user.setGender(choiceGender.getValue());
+        user.setFirstName(tfFirstName.getText());
+        user.setLastName(tfLastName.getText());
 
         try {
             Socket socket = new Socket("localhost", 4444);

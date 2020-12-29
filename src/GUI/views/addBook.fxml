@@ -45,11 +45,21 @@
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="tfAuthor" layoutX="30.0" layoutY="30.0" promptText="Author" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                           <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
-                           </GridPane.margin>
-                        </TextField>
+                        <GridPane GridPane.columnIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <ChoiceBox fx:id="choiceAuthor" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.halignment="LEFT">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </GridPane.margin>
+                              </ChoiceBox>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                   <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -95,7 +105,10 @@
                               <Insets left="20.0" right="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <DatePicker fx:id="dpPublishDate" promptText="Publish Date" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <DatePicker fx:id="dpPublishDate" prefWidth="400.0" promptText="Publish Date" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </GridPane.margin></DatePicker>
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="4">
@@ -112,7 +125,10 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                            </GridPane.margin>
                         </TextArea>
-                        <DatePicker fx:id="dpDateOfReturn" promptText="Date of return (optional)" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <DatePicker fx:id="dpDateOfReturn" prefWidth="400.0" promptText="Date of return (optional)" showWeekNumbers="true" style="-fx-border-width: 0px 0px 0px 0px;" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </GridPane.margin></DatePicker>
                      </children>
                   </GridPane>
                </children>
