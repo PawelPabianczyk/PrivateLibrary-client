@@ -46,22 +46,28 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label lFavouriteAuthor;
-    //TODO pobierac z biblioteki najczesciej wystepujace gatunki
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        showProfileDetails();
+    }
+
+
+
+    public void home(MouseEvent mouseEvent) {
+        showProfileDetails();
+        homeLayout.setCenter(profileLayout);
+    }
+
+    private void showProfileDetails(){
         User u = getUserData();
         lFirstName.setText(u.getFirstName());
         lLastName.setText(u.getLastName());
         lGender.setText(u.getGender());
         lCountry.setText(u.getCountry());
         lFavouriteGenre.setText(getFavouriteGenre());
-        lFavouriteAuthor.setText(null); //TODO zrobic funkcje do pobierania ulubionego autora
+        lFavouriteAuthor.setText(getFavouriteAuthor());
         UserHolder.getInstance().setUser(u);
-    }
-
-    public void home(MouseEvent mouseEvent) {
-        homeLayout.setCenter(profileLayout);
     }
 
     public void books(MouseEvent mouseEvent) {
@@ -134,6 +140,23 @@ public class HomeController implements Initializable {
             socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             outputStream.writeObject("GET favourite genre");
+            outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
+
+            ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
+            return (String) inputStream.readObject();
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private String getFavouriteAuthor() {
+        Socket socket = null;
+        try {
+            socket = new Socket("localhost", 4444);
+            ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+            outputStream.writeObject("GET favourite author");
             outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
 
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
