@@ -57,8 +57,6 @@ public class RegisterController implements Initializable {
         user.setGender(choiceGender.getValue());
         user.setFirstName(tfFirstName.getText());
         user.setLastName(tfLastName.getText());
-        user.setFavouriteAuthor(null);
-        user.setFavouriteGenre(null);
 
         try {
             Socket socket = new Socket("localhost", 4444);
