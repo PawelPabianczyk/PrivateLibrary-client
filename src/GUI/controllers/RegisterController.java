@@ -49,7 +49,7 @@ public class RegisterController implements Initializable {
         window.show();
     }
 
-    public void register(MouseEvent mouseEvent) {
+    public void register(MouseEvent mouseEvent) throws IOException {
         User user = new User();
         user.setUsername(tfUsername.getText());
         user.setPassword(pfPassword.getText());
@@ -75,5 +75,6 @@ public class RegisterController implements Initializable {
         pfConfirm.clear();
         pfPassword.clear();
         choiceGender.setValue("Rather not say");
+        login(mouseEvent);
     }
 }
