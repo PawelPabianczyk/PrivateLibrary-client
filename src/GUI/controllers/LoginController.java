@@ -24,6 +24,7 @@ public class LoginController implements Initializable {
     public PasswordField password;
     public TextField username;
 
+    //TODO sprawdzanie poprawnosci wprowadzonych danych
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }

@@ -55,6 +55,7 @@ public class AddBookController implements Initializable {
     private ObservableList<String> publishersList;
     private ObservableList<String> authorsList;
 
+    //TODO sprawdzanie poprawnosci wprowadzonych danych
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         taskList = new ArrayList<>();

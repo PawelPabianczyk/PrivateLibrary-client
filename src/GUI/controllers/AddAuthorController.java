@@ -3,16 +3,11 @@ package GUI.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import models.Author;
 
 import java.io.IOException;
@@ -40,6 +35,7 @@ public class AddAuthorController implements Initializable {
 
     private ObservableList<String> genderList = FXCollections.observableArrayList("Male", "Female", "Rather not say");
 
+    //TODO sprawdzanie poprawnosci wprowadzonych danych
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choiceGender.setValue("Rather not say");

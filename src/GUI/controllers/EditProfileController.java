@@ -44,6 +44,7 @@ public class EditProfileController implements Initializable {
     @FXML
     public ChoiceBox<String> choiceGender;
 
+    //TODO sprawdzanie poprawnosci wprowadzonych danych
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         User user = UserHolder.getInstance().getUser();

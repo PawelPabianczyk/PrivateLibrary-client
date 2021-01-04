@@ -1,17 +1,11 @@
 package GUI.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import models.Genre;
 import models.Publisher;
 
 import java.io.IOException;
@@ -31,6 +25,7 @@ public class AddPublisherController implements Initializable {
     @FXML
     private DatePicker dpDayOfFoundation;
 
+    //TODO sprawdzanie poprawnosci wprowadzonych danych
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
