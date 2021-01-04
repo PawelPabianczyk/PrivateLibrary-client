@@ -56,11 +56,11 @@ public class BooksController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         choiceCategory.setValue("All");
         choiceCategory.setItems(categories);
-        data = FXCollections.observableArrayList(getUsersBooks("All"));
+        data = FXCollections.observableArrayList(getUsersBooks("All", null));
         showData(data);
     }
 
-    private ArrayList<Book> getUsersBooks(String category){
+    private ArrayList<Book> getUsersBooks(String category, String phrase){
         try {
             Socket socket = new Socket("localhost", 4444);
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -69,14 +69,10 @@ public class BooksController implements Initializable {
                 case "All":
                     outputStream.writeObject("GET user books");
                     break;
-                case "Title":
-                    outputStream.writeObject("GET user books with title");
-                    break;
-                case "Author":
-                    outputStream.writeObject("GET user books with author");
-                    break;
-                case "Genre":
-                    outputStream.writeObject("GET user books with genre");
+                default:
+                    outputStream.writeObject("GET user books with phrase");
+                    outputStream.writeObject(category);
+                    outputStream.writeObject(phrase);
                     break;
             }
             outputStream.writeObject(UserHolder.getInstance().getUser().getUsername());
@@ -96,7 +92,7 @@ public class BooksController implements Initializable {
     public void search(MouseEvent mouseEvent) {
         String category = choiceCategory.getValue();
         String phrase = tfPhrase.getText();
-        data = FXCollections.observableArrayList(getUsersBooks(category));
+        data = FXCollections.observableArrayList(getUsersBooks(category, phrase));
         showData(data);
         choiceCategory.setValue("All");
         tfPhrase.setText("Phrase");
