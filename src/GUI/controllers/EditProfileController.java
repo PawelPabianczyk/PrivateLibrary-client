@@ -33,12 +33,6 @@ public class EditProfileController implements Initializable {
     @FXML
     private TextField tfCountry;
 
-    @FXML
-    private Button btnExit;
-
-    @FXML
-    private Button btnSave;
-
     private ObservableList<String> genderList = FXCollections.observableArrayList("Male", "Female", "Rather not say");
 
     @FXML
