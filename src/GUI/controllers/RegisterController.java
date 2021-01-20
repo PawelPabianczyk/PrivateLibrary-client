@@ -53,13 +53,15 @@ public class RegisterController implements Initializable {
 
     public void register(MouseEvent mouseEvent) throws IOException {
 
-        if (!isUsernameCorrect(tfUsername.getText())){
+        if (!isUsernameHasMin8Letters(tfUsername.getText())) {
             lError.setText("Username is incorrect!");
-        }
-        else if (!isTheSameString(pfPassword.getText(), pfConfirm.getText())){
+        } else if (!isTheSameString(pfPassword.getText(), pfConfirm.getText())) {
             lError.setText("Passwords are different!");
-        }
-        else{
+        } else if (tfCountry.getText().length() <=0
+                || tfFirstName.getText().length() <=0
+                || tfLastName.getText().length() <=0) {
+            lError.setText("All fields are required!");
+        } else {
             User user = new User();
             user.setUsername(tfUsername.getText());
             user.setPassword(pfPassword.getText());
@@ -93,14 +95,14 @@ public class RegisterController implements Initializable {
         choiceGender.setValue("Rather not say");
     }
 
-    private Boolean isTheSameString(String string1, String string2) {
+    public Boolean isTheSameString(String string1, String string2) {
         if (string1.equals(string2))
             return true;
         return false;
     }
 
-    private Boolean isUsernameCorrect(String username) {
-        if (username.length() > 8)
+    public Boolean isUsernameHasMin8Letters(String username) {
+        if (username.length() >= 8)
             return true;
         return false;
     }

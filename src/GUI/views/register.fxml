@@ -109,7 +109,10 @@
                     </rowConstraints>
                     <children>
                         <ChoiceBox fx:id="choiceGender" prefHeight="27.0" prefWidth="260.0" style="-fx-background-color: #0D1824; -fx-border-color: white; -fx-border-width: 0px 0px 2px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                        <Label fx:id="lError" textFill="WHITE" />
+                        <Label fx:id="lError" textFill="WHITE">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin></Label>
                     </children>
                 </GridPane>
                 <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a Private Library account" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
